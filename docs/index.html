@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A/B+ Context - A/B Testing Guide</title>
+    <title>A/B Test Guidance with LLM | AB+ Context</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Get LLM-powered A/B testing insights and experiment design guidance. Learn statistical analysis, test duration planning, and confident result interpretation.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="A/B testing, LLM insights, AI powered A/B testing, statistical analysis, test duration, MDE, minimum detectable effect, conversion optimization, experiment context, AB+ Context">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="A/B Test Guidance with LLM | AB+ Context">
+    <meta property="og:description" content="Get LLM-powered A/B testing insights and experiment design guidance. Learn statistical analysis, test duration planning, and confident result interpretation.">
+    <meta property="og:url" content="https://ab-context.ai/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://ab-context.ai/assets/images/logo.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A/B Test Guidance with LLM | AB+ Context">
+    <meta name="twitter:description" content="Get LLM-powered A/B testing insights and experiment design guidance. Learn statistical analysis, test duration planning, and confident result interpretation.">
+    <meta name="twitter:image" content="https://ab-context.ai/assets/images/logo.png">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSC7GWCPMS"></script>
@@ -23,13 +42,102 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://ab-context.ai/#webpage",
+          "url": "https://ab-context.ai/",
+          "name": "LLM-Powered A/B Test Guidance: Optimize Your Experiment Design | AB+ Context",
+          "description": "Get LLM-powered A/B testing insights and experiment design guidance. Learn statistical analysis, test duration planning, and confident result interpretation.",
+          "inLanguage": "en-US",
+          "isPartOf": {
+            "@id": "https://ab-context.ai/#website"
+          },
+          "about": {
+            "@id": "https://ab-context.ai/#organization"
+          },
+          "primaryImageOfPage": {
+            "@id": "https://ab-context.ai/#primaryimage"
+          },
+          "datePublished": "2025-07-12",
+          "dateModified": "2025-07-13"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://ab-context.ai/#article",
+          "headline": "LLM-Powered A/B Test Guidance: Optimize Your Experiment Design",
+          "description": "Get LLM-powered A/B testing insights and experiment design guidance. Learn statistical analysis, test duration planning, and confident result interpretation with AI-driven recommendations.",
+          "image": {
+            "@id": "https://ab-context.ai/#primaryimage"
+          },
+          "author": {
+            "@id": "https://ab-context.ai/#organization"
+          },
+          "publisher": {
+            "@id": "https://ab-context.ai/#organization"
+          },
+          "datePublished": "2025-01-12",
+          "dateModified": "2025-01-12",
+          "articleSection": "LLM-Powered A/B Testing",
+          "keywords": ["A/B testing", "LLM insights", "experiment design", "statistical analysis", "test duration", "conversion optimization", "AB+ Context", "minimum detectable effect", "MDE"],
+          "mainEntityOfPage": {
+            "@id": "https://ab-context.ai/#webpage"
+          },
+          "isPartOf": {
+            "@id": "https://ab-context.ai/#webpage"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://ab-context.ai/#organization",
+          "name": "AB+ Context",
+          "url": "https://ab-context.ai/",
+          "logo": {
+            "@id": "https://ab-context.ai/#logo"
+          },
+          "description": "LLM-powered A/B testing guides and tools for confident statistical analysis.",
+          "sameAs": []
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://ab-context.ai/#logo",
+          "url": "https://ab-context.ai/assets/images/logo.png",
+          "contentUrl": "https://ab-context.ai/assets/images/logo.png",
+          "caption": "AB+ Context Logo"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://ab-context.ai/#primaryimage",
+          "url": "https://ab-context.ai/assets/images/logo.png",
+          "contentUrl": "https://ab-context.ai/assets/images/logo.png",
+          "caption": "A/B Testing Guide by AB+ Context"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ab-context.ai/#website",
+          "url": "https://ab-context.ai/",
+          "name": "AB+ Context",
+          "description": "LLM-powered A/B testing guides and statistical analysis tools",
+          "inLanguage": "en-US",
+          "publisher": {
+            "@id": "https://ab-context.ai/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-gray-100">
         <!-- Header -->
     <header class="bg-white text-gray-900 p-3 sticky top-0 z-50 border-b border-gray-200">
         <div class="flex items-center justify-center max-w-7xl mx-auto">
             <div class="h-12 w-128 flex items-center justify-center">
-                <img src="assets/images/logo.png" alt="Logo" class="h-40 w-auto object-contain -my-12">
+                <img src="assets/images/logo.png" alt="AB+ Context - LLM-Powered A/B Testing and Experiment Design Platform" class="h-40 w-auto object-contain -my-12">
             </div>
         </div>
     </header>
@@ -57,7 +165,7 @@
                             When planning an A/B test, one critical question always pops up: "How long should we run this test?" The ideal answer involves some math, specifically calculating the minimum detectable effect (MDE)—the smallest improvement you care enough to reliably detect—and then seeing how long you'll need to run the test to find it with confidence (usually at 80% power).
                         </p>
                         <p class="text-lg leading-relaxed">
-                            But here's the practical reality: teams often don't have unlimited time or traffic. They frequently set the test duration first—maybe due to business cycles, deadlines, or limited traffic—and then figure out the smallest detectable improvement within that period. For instance, detecting a modest 5% uplift might need around 100,000 visitors per variant. Want to detect something as small as 1%? Buckle up, you'll need way more time and traffic. So, balancing statistical precision with real-world practicality often means accepting that smaller effects might slip through the cracks, but at least you'll confidently detect meaningful changes within your constraints.
+                            But here's the practical reality: teams often don't have unlimited time or traffic. They frequently set the test duration first—maybe due to business cycles, deadlines, or limited traffic—and then figure out the smallest detectable improvement within that period. For instance, detecting a modest 5% uplift might need around 100,000 visitors per variant. Want to detect something as small as 1%? You'll need way more time and traffic. So, balancing statistical precision with real-world practicality often means accepting that smaller effects might slip through the cracks, but at least you'll confidently detect meaningful changes within your constraints.
                         </p>
                     </div>
                     
@@ -127,7 +235,7 @@
                     <a href="/privacy" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
                         Privacy Policy
                     </a>
-                    <a href="mailto:contact@example.com" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                    <a href="https://www.linkedin.com/in/carrzwang/" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
                         Contact
                     </a>
                     <a href="/terms" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
