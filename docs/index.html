@@ -43,6 +43,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <script>
+        function setCTR(value) {
+            document.getElementById('ctrRate').value = value;
+            // Trigger any calculation function if it exists
+            if (typeof calculateMDE === 'function') {
+                calculateMDE();
+            }
+        }
+    </script>
+    
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
@@ -163,8 +173,10 @@
                 </div>
                 
                 <div class="space-y-12 text-gray-800">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8">A/B Test Duration Planning: From Theory to Practice</h2>
+                    
                     <div class="space-y-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">How Long Should Your A/B Test Run?</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">How Long Should Your A/B Test Run?</h3>
                         <p class="text-lg leading-relaxed mb-6">
                             When planning an A/B test, one critical question always pops up: "How long should we run this test?" The ideal answer involves some math, specifically calculating the minimum detectable effect (MDE)—the smallest improvement you care enough to reliably detect—and then seeing how long you'll need to run the test to find it with confidence (usually at 80% power).
                         </p>
@@ -174,7 +186,7 @@
                     </div>
                     
                     <div class="space-y-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">MDE-first or Timeframe-first: What's Your Play?</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">MDE-first or Timeframe-first: What's Your Play?</h3>
                         <p class="text-lg leading-relaxed mb-6">Two major approaches dominate A/B test planning, each with its own set of trade-offs:</p>
                         <ul class="list-disc list-inside space-y-4 ml-6 mb-6">
                             <li class="text-lg leading-relaxed"><strong>MDE-first:</strong> You first ask, "What's the smallest change worth noticing?" and set your sample size or duration accordingly. This ensures high statistical rigor—you won't miss subtle but valuable changes. But here's the catch: if the change you're after is small, you might end up running the test for weeks or even months, which can slow your team down.</li>
@@ -186,7 +198,7 @@
                     </div>
                     
                     <div class="space-y-6">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Planning Ahead Makes All the Difference</h2>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Why Planning Ahead Makes All the Difference</h3>
                         <p class="text-lg leading-relaxed mb-6">
                             Smart A/B testing isn't just about running tests—it's about planning them thoughtfully in advance. Setting clear expectations around your MDE, test duration, and statistical power means you'll interpret your results with far greater confidence. Why does this matter?
                         </p>
@@ -197,29 +209,72 @@
                             In short, proper planning ensures you don't mistake noise for signal, helping your team make smarter, more informed decisions about rolling out new features or improvements. Keep this balance in mind, and you'll find yourself running tests that drive genuine business value.
                         </p>
                     </div>
+                    
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">7-Day A/B Test: What Lift Can You Detect?</h3>
+                        <p class="text-lg leading-relaxed">
+                            Businesses often structure tests in 1-week cycles to match natural user behavior rhythms—think weekly content updates or features that users revisit every seven days. To illustrate what's possible in a single cycle, let's lean on real industry benchmarks. In <a href="https://databox.com/email-marketing-statistics#42" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Databox's analysis of hundreds of email CTAs</a>—also cited by <a href="https://blog.hubspot.com/marketing/personalized-calls-to-action-convert-better-data" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">HubSpot</a>¹—over 40% of contributors see a 3–5% click-through rate, while nearly 15% exceed 10% CTR.
+                        </p>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">7-Day A/B Test Lift Estimator</h4>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-sm text-gray-600 self-center mr-2">Quick select:</span>
+                                <button onclick="setCTR(3)" class="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    3%
+                                </button>
+                                <button onclick="setCTR(4)" class="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    4%
+                                </button>
+                                <button onclick="setCTR(5)" class="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    5%
+                                </button>
+                                <button onclick="setCTR(10)" class="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    10%
+                                </button>
+                            </div>
+                            
+                            <p class="text-lg leading-relaxed mb-3">
+                                To confidently interpret your A/B test after 7 days—assuming 
+                                <input type="number" id="userCount" value="1000" min="1" max="100000" class="mx-3 px-3 py-2 border border-gray-300 rounded w-20 text-center bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"> 
+                                users per day and an industry-average 
+                                <input type="number" id="ctrRate" value="3" readonly class="mx-3 px-3 py-2 border border-gray-300 rounded w-16 text-center bg-gray-50 focus:outline-none cursor-default">% 
+                                click-through rate (CTR)—your experiment is sized to detect an absolute change of 
+                                <input type="number" id="mdeResult" value="--" min="0.1" max="100" step="0.1" class="mx-3 px-3 py-2 border border-gray-300 rounded w-16 text-center bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold text-blue-600">% or more.
+                            </p>
+                            <p class="text-sm text-gray-600">
+                                (α = 0.05 ⇒ 5% false-positive risk; power = 80% ⇒ 20% false-negative risk for a true X% lift.)
+                            </p>
+                        </div>
+                        
+                        <div class="text-sm text-gray-600 mt-4">
+                            <p>¹ <em>Sources: <a href="https://databox.com/email-marketing-statistics#42" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Databox Email Marketing Statistics</a> and <a href="https://blog.hubspot.com/marketing/personalized-calls-to-action-convert-better-data" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">HubSpot's CTA Performance Research</a></em></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Google Form Section -->
+    <!-- Sign-up Form Section -->
     <div class="max-w-4xl mx-auto p-4 mb-8">
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6 border-b">
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Want an LLM-powered guide to run solid A/B tests and interpret them with confidence?</h2>
-            </div>
-            <div class="p-6">
-                <div class="w-full overflow-hidden rounded-lg">
-                    <iframe 
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdHVhzlA6pyRtbpHdkD2rRivFXHiUGahBzJ1aaJCzqGiPsHRg/viewform?embedded=true" 
-                        width="100%" 
-                        height="800" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        class="w-full">
-                        Loading…
-                    </iframe>
+            <div class="p-8">
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Want an LLM-powered guide to run solid A/B tests and interpret them with confidence?</h2>
+                    <div class="w-full overflow-hidden rounded-lg">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdHVhzlA6pyRtbpHdkD2rRivFXHiUGahBzJ1aaJCzqGiPsHRg/viewform?embedded=true" 
+                            width="100%" 
+                            height="800" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            class="w-full">
+                            Loading…
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
