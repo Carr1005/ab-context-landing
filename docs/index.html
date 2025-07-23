@@ -70,13 +70,26 @@
             // Convert back to percentage and round to 1 decimal place
             const mdePercentage = (impliedMDE * 100).toFixed(1);
             
+            // Calculate additional values for the new content
+            const mdeTimesPointEight = (impliedMDE * 100 * 0.8).toFixed(1);
+            const baselinePlusLift = (ctrRate + parseFloat(mdeTimesPointEight)).toFixed(1);
+            
             // Update the result displays
             document.getElementById('mdeResult').textContent = mdePercentage;
             document.getElementById('mdeResultFootnote').textContent = mdePercentage;
             document.getElementById('mdeResultText1').textContent = mdePercentage;
             document.getElementById('mdeResultText2').textContent = mdePercentage;
             document.getElementById('mdeResultText3').textContent = mdePercentage;
+            document.getElementById('mdeResultText4').textContent = mdePercentage;
             document.getElementById('usersPerArm').textContent = Math.round(totalUsersPerArm).toLocaleString();
+            
+            // Update new dynamic elements
+            document.getElementById('mdeMinus3').textContent = mdeTimesPointEight;
+            document.getElementById('baselineCTR').textContent = ctrRate;
+            document.getElementById('baselinePlusLift').textContent = baselinePlusLift;
+            document.getElementById('usersPerArmText').textContent = Math.round(totalUsersPerArm).toLocaleString();
+            document.getElementById('mdeMinus3Text2').textContent = mdeTimesPointEight;
+            document.getElementById('mdeMinus3Text3').textContent = mdeTimesPointEight;
         }
         
 
@@ -343,14 +356,29 @@
                             That <span id="mdeResultText1" class="font-semibold text-blue-600">0.0</span>% is your Minimum Detectable Effect (MDE): the smallest lift you can reliably spot with 80% power (i.e. you'll detect a true effect of this size in roughly 4 out of 5 tests).
                         </p>
                         
-                        <p class="text-lg leading-relaxed mb-4">
-                            In practice, compare your observed lift to the MDE:
+                        <p class="text-lg leading-relaxed mb-6">
+                            In practice, these numbers aren't just window dressing—they directly shape what your test can (and can't) detect:
                         </p>
                         
-                        <ul class="list-disc list-inside space-y-3 ml-6 mb-6">
-                            <li class="text-lg leading-relaxed"><strong>Observed ≥ <span id="mdeResultText2" class="font-semibold text-blue-600">0.0</span>% but p ≥ 0.05:</strong> Promising but inconclusive—there's still up to a 20% false-negative risk. Extend the test or add traffic to reduce that risk.</li>
-                            <li class="text-lg leading-relaxed"><strong>Observed < <span id="mdeResultText3" class="font-semibold text-blue-600">0.0</span>%:</strong> Any smaller lift falls below your test's resolution and will blend into more noise. To catch subtler effects, plan a larger sample size in your next test or adopt an MDE-first design approach.</li>
-                        </ul>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-lg leading-relaxed mb-4"><strong>Without planning:</strong></p>
+                                <p class="text-lg leading-relaxed mb-4">
+                                    Imagine you see a <span id="mdeMinus3" class="font-semibold text-blue-600">0.0</span>% lift <span id="baselineCTR" class="font-semibold text-blue-600">3</span>% → <span id="baselinePlusLift" class="font-semibold text-blue-600">0.0</span>% after 7 days, but your p-value is 0.10 (>0.05, not statistically significant). Without having planned ahead, you might wrongly dismiss this promising lift as "no effect," unaware your test didn't have enough users to reliably detect lifts smaller than <span id="mdeResultText2" class="font-semibold text-blue-600">0.0</span>%.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-lg leading-relaxed mb-4"><strong>With planning:</strong></p>
+                                <p class="text-lg leading-relaxed mb-4">
+                                    By sizing your test upfront for an MDE of <span id="mdeResultText3" class="font-semibold text-blue-600">0.0</span>% (80% power → you'd detect a true <span id="mdeResultText4" class="font-semibold text-blue-600">0.0</span>% lift in roughly 4 out of 5 tests), you immediately recognize the same <span id="mdeMinus3Text2" class="font-semibold text-blue-600">0.0</span>% lift as inconclusive rather than "no effect." To reliably detect smaller effects like this <span id="mdeMinus3Text3" class="font-semibold text-blue-600">0.0</span>% bump, you'd know ahead to increase your sample size.
+                                </p>
+                            </div>
+                                                        
+                            <p class="text-lg leading-relaxed mb-6">
+                                Plan your sample size and MDE ahead so you know clearly when a lift is real, inconclusive, or simply underpowered.
+                            </p>
+                        </div>
                         
                         <div class="mt-12 pt-8 border-t border-gray-200">
                             <div class="space-y-6">
