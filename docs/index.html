@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Long Should an A/B Test Run? – LLM-Powered A/B Testing Guide | AB+ Context</title>
+    <title>AB+ Context - LLM-Powered A/B Testing Guides and Statistical Analysis Tools</title>
     
     <!-- Enhanced Meta Description -->
-    <meta name="description" content="How long should your A/B test run? Explore a real 7-day plan with industry benchmarks and join our LLM-powered pilot for expert A/B testing guidance.">
+    <meta name="description" content="A/B testing guides powered by large language models. Learn about test duration planning, avoiding common pitfalls, and leveraging LLMs for better experiment design.">
     
     <!-- Keywords -->
-    <meta name="keywords" content="A/B testing, how long should an A/B test run, LLM A/B testing, test duration, MDE, statistical power, experiment planning, lift calculator, minimum detectable effect, conversion optimization, AB+ Context">
+    <meta name="keywords" content="A/B testing, LLM A/B testing, test duration, statistical significance, experiment design, context engineering, A/B testing guides, AB+ Context">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="How Long Should an A/B Test Run? – LLM-Powered A/B Testing Guide | AB+ Context">
-    <meta property="og:description" content="How long should your A/B test run? Explore a real 7-day plan with industry benchmarks and join our LLM-powered pilot for expert A/B testing guidance.">
+    <meta property="og:title" content="AB+ Context - LLM-Powered A/B Testing Guides and Statistical Analysis Tools">
+    <meta property="og:description" content="A/B testing guides powered by large language models. Learn about test duration planning, avoiding common pitfalls, and leveraging LLMs for better experiment design.">
     <meta property="og:url" content="https://ab-context.ai/">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:image" content="https://ab-context.ai/assets/images/logo.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How Long Should an A/B Test Run? – LLM-Powered A/B Testing Guide | AB+ Context">
-    <meta name="twitter:description" content="How long should your A/B test run? Explore a real 7-day plan with industry benchmarks and join our LLM-powered pilot for expert A/B testing guidance.">
+    <meta name="twitter:title" content="AB+ Context - LLM-Powered A/B Testing Guides and Statistical Analysis Tools">
+    <meta name="twitter:description" content="A/B testing guides powered by large language models. Learn about test duration planning, avoiding common pitfalls, and leveraging LLMs for better experiment design.">
     <meta name="twitter:image" content="https://ab-context.ai/assets/images/logo.png">
     
     <!-- Google tag (gtag.js) -->
@@ -43,58 +43,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <script>
-        function setCTR(value) {
-            document.getElementById('ctrRate').value = value;
-            calculateMDE();
-        }
-        
-        function calculateMDE() {
-            // Get input values
-            const userCount = parseFloat(document.getElementById('userCount').value) || 1000;
-            const ctrRate = parseFloat(document.getElementById('ctrRate').value) || 3;
-            
-            // Convert CTR from percentage to decimal
-            const p0 = ctrRate / 100;
-            
-            // Calculate total users per arm for 7-day test
-            const totalUsersPerArm = (userCount * 7) / 2;
-            
-            // Z-scores for alpha = 0.05 and power = 80%
-            const zAlpha = 1.96;  // Z₁₋α/₂ for α = 0.05
-            const zPower = 0.842; // Zpower for 80% power
-            
-            // Calculate MDE using the formula
-            const impliedMDE = (zAlpha + zPower) * Math.sqrt(2 * p0 * (1 - p0) / totalUsersPerArm);
-            
-            // Convert back to percentage and round to 1 decimal place
-            const mdePercentage = (impliedMDE * 100).toFixed(1);
-            
-            // Calculate additional values for the new content
-            const mdeTimesPointEight = (impliedMDE * 100 * 0.8).toFixed(1);
-            const baselinePlusLift = (ctrRate + parseFloat(mdeTimesPointEight)).toFixed(1);
-            
-            // Update the result displays
-            document.getElementById('mdeResult').textContent = mdePercentage;
-            document.getElementById('mdeResultFootnote').textContent = mdePercentage;
-            document.getElementById('mdeResultText1').textContent = mdePercentage;
-            document.getElementById('mdeResultText2').textContent = mdePercentage;
-            document.getElementById('mdeResultText3').textContent = mdePercentage;
-            document.getElementById('mdeResultText4').textContent = mdePercentage;
-            document.getElementById('usersPerArm').textContent = Math.round(totalUsersPerArm).toLocaleString();
-            
-            // Update new dynamic elements
-            document.getElementById('mdeMinus3').textContent = mdeTimesPointEight;
-            document.getElementById('baselineCTR').textContent = ctrRate;
-            document.getElementById('baselinePlusLift').textContent = baselinePlusLift;
-            document.getElementById('usersPerArmText').textContent = Math.round(totalUsersPerArm).toLocaleString();
-            document.getElementById('mdeMinus3Text2').textContent = mdeTimesPointEight;
-            document.getElementById('mdeMinus3Text3').textContent = mdeTimesPointEight;
-        }
-        
-
-    </script>
-    
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
@@ -104,8 +52,8 @@
           "@type": "WebPage",
           "@id": "https://ab-context.ai/#webpage",
           "url": "https://ab-context.ai/",
-          "name": "How Long Should an A/B Test Run? – LLM-Powered A/B Testing Guide | AB+ Context",
-          "description": "How long should your A/B test run? Explore a real 7-day plan with industry benchmarks and join our LLM-powered pilot for expert A/B testing guidance.",
+          "name": "AB+ Context - LLM-Powered A/B Testing Guides and Statistical Analysis Tools",
+          "description": "A/B testing guides powered by large language models. Learn about test duration planning, avoiding common pitfalls, and leveraging LLMs for better experiment design.",
           "inLanguage": "en-US",
           "isPartOf": {
             "@id": "https://ab-context.ai/#website"
@@ -116,36 +64,8 @@
           "primaryImageOfPage": {
             "@id": "https://ab-context.ai/#primaryimage"
           },
-          "datePublished": "2025-07-12",
-          "dateModified": "2025-07-13"
-        },
-        {
-          "@type": "Article",
-          "@id": "https://ab-context.ai/#article",
-          "headline": "How Long Should an A/B Test Run? – LLM-Powered A/B Testing Guide",
-          "description": "How long should your A/B test run? Explore a real 7-day plan with industry benchmarks and join our LLM-powered pilot for expert A/B testing guidance.",
-          "image": {
-            "@id": "https://ab-context.ai/#primaryimage"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Carr Wang",
-            "jobTitle": "Product Engineer",
-            "url": "https://www.linkedin.com/in/carrzwang/"
-          },
-          "publisher": {
-            "@id": "https://ab-context.ai/#organization"
-          },
-          "datePublished": "2025-01-12",
-          "dateModified": "2025-01-12",
-          "articleSection": "LLM-Powered A/B Testing",
-          "keywords": ["A/B testing", "how long should an A/B test run", "LLM A/B testing", "test duration", "MDE", "statistical power", "experiment planning", "lift calculator", "minimum detectable effect", "conversion optimization", "AB+ Context"],
-          "mainEntityOfPage": {
-            "@id": "https://ab-context.ai/#webpage"
-          },
-          "isPartOf": {
-            "@id": "https://ab-context.ai/#webpage"
-          }
+          "datePublished": "2025-08-01",
+          "dateModified": "2025-08-01"
         },
         {
           "@type": "Organization",
@@ -170,7 +90,7 @@
           "@id": "https://ab-context.ai/#primaryimage",
           "url": "https://ab-context.ai/assets/images/logo.png",
           "contentUrl": "https://ab-context.ai/assets/images/logo.png",
-          "caption": "A/B Testing Guide by AB+ Context"
+          "caption": "AB+ Context - LLM-Powered A/B Testing Guides"
         },
         {
           "@type": "WebSite",
@@ -188,7 +108,7 @@
     </script>
 </head>
 <body class="bg-gray-100">
-        <!-- Header -->
+    <!-- Header -->
     <header class="bg-white text-gray-900 p-3 sticky top-0 z-50 border-b border-gray-200">
         <div class="flex items-center justify-center max-w-7xl mx-auto">
             <div class="h-12 w-128 flex items-center justify-center">
@@ -203,265 +123,114 @@
 
     <!-- Main Content -->
     <div class="max-w-4xl mx-auto p-4">
-        <!-- Post Header -->
-        <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
-            <div class="p-6 border-b">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">
-                    A/B Testing Guide: How Long Should Your Tests Run?
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md mb-8 overflow-hidden">
+            <div class="p-8 md:p-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
+                    AB+ Context
                 </h1>
-                <div class="flex items-center justify-end text-gray-600 text-sm">
-                    <span>by <span class="font-medium text-gray-700">Carr Wang</span>, Product Engineer</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+                    LLM-Powered A/B Testing Guides
+                </h2>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 max-w-3xl">
+                    Welcome to AB+ Context, where we explore A/B testing best practices enhanced by large language models. Our guides help you design, run, and analyze A/B tests with greater confidence and statistical rigor.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHVhzlA6pyRtbpHdkD2rRivFXHiUGahBzJ1aaJCzqGiPsHRg/viewform" 
+                       class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                       target="_blank" rel="noopener noreferrer">
+                        Join the Waitlist
+                    </a>
                 </div>
             </div>
+        </div>
+        
+        <!-- Featured Articles Section -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 px-1">
+                Featured Articles
+            </h2>
             
-            <!-- Post Content -->
-            <div class="p-8">
-                <div class="mb-8">
-                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">A/B Testing</span>
+            <!-- Article Cards -->
+            <div class="space-y-6">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            <a href="ab-testing-guide-how-long-to-run-tests/" class="hover:text-blue-600 transition-colors">
+                                A/B Testing Guide: How Long Should Your Tests Run?
+                            </a>
+                        </h3>
+                        <div class="mb-3 flex items-center text-sm text-gray-600">
+                            <span class="mr-2">
+                                <span class="font-medium text-gray-700">Carr Wang</span>, Product Engineer
+                            </span>
+                            <span class="px-2">•</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium">A/B Testing</span>
+                        </div>
+                        <p class="text-lg leading-relaxed mb-4 text-gray-700">
+                            In A/B testing, one of the most common questions is: "How long should your A/B test run?" Determining test duration requires knowing your metric's current level and variability (e.g., conversion rate or standard deviation), your Minimum Detectable Effect, and your desired statistical power.
+                        </p>
+                        <a href="ab-testing-guide-how-long-to-run-tests/" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                            Read more
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <!-- Table of Contents -->
-                <div class="mb-10">
-                    <h2 class="text-lg font-medium text-gray-700 mb-4">Contents</h2>
-                    <nav>
-                        <ol class="space-y-1 text-sm text-gray-600">
-                            <li>
-                                <a href="#duration-planning" class="text-gray-700 hover:text-blue-600 transition-colors">
-                                    A/B Testing Duration Planning: Practical Insights to Balance Run Time and Confidence
-                                </a>
-                            </li>
-                            <li class="ml-4">
-                                <a href="#how-long" class="text-gray-600 hover:text-blue-600 transition-colors">
-                                    How Long Should Your A/B Test Run?
-                                </a>
-                            </li>
-                            <li class="ml-4">
-                                <a href="#mde-vs-timeframe" class="text-gray-600 hover:text-blue-600 transition-colors">
-                                    MDE-first or Timeframe-first: What's Your Play?
-                                </a>
-                            </li>
-                            <li class="ml-4">
-                                <a href="#planning-ahead" class="text-gray-600 hover:text-blue-600 transition-colors">
-                                    Why Planning Ahead Makes All the Difference
-                                </a>
-                            </li>
-                            <li class="ml-4">
-                                <a href="#seven-day-test" class="text-gray-600 hover:text-blue-600 transition-colors">
-                                    7-Day A/B Test: What Lift Can You Detect?
-                                </a>
-                            </li>
-                            <li class="ml-4">
-                                <a href="#llm-guidance" class="text-gray-600 hover:text-blue-600 transition-colors">
-                                    Get LLM-Powered A/B Test Guidance
-                                </a>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-                
-                <div class="space-y-12 text-gray-800">
-                    <h2 id="duration-planning" class="text-2xl font-bold text-gray-900 mb-8">A/B Testing Duration Planning: Practical Insights to Balance Run Time and Confidence</h2>
-                    
-                    <div class="space-y-6">
-                        <h3 id="how-long" class="text-xl font-semibold text-gray-900 mb-4">How Long Should Your A/B Test Run?</h3>
-                        <p class="text-lg leading-relaxed mb-6">
-                            In A/B testing, one of the most common questions is: "How long should your A/B test run?" Determining test duration requires knowing your metric’s current level and variability (e.g., conversion rate or standard deviation), your Minimum Detectable Effect, and your desired statistical power.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            When planning an A/B test, one critical question always pops up: "How long should we run this test?" The ideal answer involves some math, specifically calculating the minimum detectable effect (MDE)—the smallest improvement you care enough to reliably detect—and then seeing how long you'll need to run the test to find it with confidence (usually at 80% power).
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            But here's the practical reality: teams often don't have unlimited time or traffic. They frequently set the test duration first—maybe due to business cycles, deadlines, or limited traffic—and then figure out the smallest detectable improvement within that period. For instance, detecting a modest 5% uplift might need around 100,000 visitors per variant. Want to detect something as small as 1%? You'll need way more time and traffic. So, balancing statistical precision with real-world practicality often means accepting that smaller effects might slip through the cracks, but at least you'll confidently detect meaningful changes within your constraints.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <h3 id="mde-vs-timeframe" class="text-xl font-semibold text-gray-900 mb-4">MDE-first or Timeframe-first: What's Your Play?</h3>
-                        <p class="text-lg leading-relaxed mb-6">Consider where you want to place your focus, and you’ll naturally gravitate toward one of two approaches—each with its own trade-offs:</p>
-                        <ul class="list-disc list-inside space-y-4 ml-6 mb-6">
-                            <li class="text-lg leading-relaxed"><strong>MDE-first:</strong> You first ask, "What's the smallest change worth noticing?" and set your sample size or duration accordingly. This ensures high statistical rigor—you won't miss subtle but valuable changes. But here's the catch: if the change you're after is small, you might end up running the test for weeks or even months, which can slow your team down.</li>
-                            <li class="text-lg leading-relaxed"><strong>Timeframe-first:</strong> You decide upfront how long the test can practically run (say, two to four weeks) and then determine the smallest detectable effect within that fixed window. This method keeps tests quick and aligned with business needs, but you might miss detecting smaller, yet meaningful improvements.</li>
-                        </ul>
-                        <p class="text-lg leading-relaxed">
-                            Choosing between these isn't about right or wrong—it's about trade-offs. Teams that prioritize agility often accept larger detectable effects. Those committed to precision might run tests longer. Know your constraints, know your goals, and choose accordingly.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <h3 id="planning-ahead" class="text-xl font-semibold text-gray-900 mb-4">Why Planning Ahead Makes All the Difference</h3>
-                        <p class="text-lg leading-relaxed mb-6">
-                            Smart A/B testing isn't just about running tests—it's about planning them thoughtfully in advance. Setting clear expectations around your MDE, test duration, and statistical power means you'll interpret your results with far greater confidence. Why does this matter?
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            Because relying solely on the famous p-value (usually p<0.05) can mislead you. A "statistically significant" result might mean very little practically, while a non-significant one could simply reflect insufficient data rather than true neutrality. Companies like Netflix and Microsoft have learned this lesson: they don't just chase significance—they weigh practical impact, statistical power, and real-world implications.
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            In short, proper planning ensures you don't mistake noise for signal, helping your team make smarter, more informed decisions about rolling out new features or improvements. Keep this balance in mind, and you'll find yourself running tests that drive genuine business value.
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <h3 id="seven-day-test" class="text-xl font-semibold text-gray-900 mb-4">7-Day A/B Test: What Lift Can You Detect?</h3>
-                        <p class="text-lg leading-relaxed">
-                            Businesses often structure tests in 1-week cycles to match natural user behavior rhythms—think weekly content updates or features that users revisit every seven days. To illustrate what's possible in a single cycle, let's lean on real industry benchmarks. In <a href="https://databox.com/email-marketing-statistics#42" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Databox's analysis of hundreds of email CTAs</a>—also cited by <a href="https://blog.hubspot.com/marketing/personalized-calls-to-action-convert-better-data" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">HubSpot</a>¹—over 40% of contributors see a 3–5% click-through rate, while nearly 15% exceed 10% CTR.
-                        </p>
-                        
-                        <div class="bg-blue-50 border-l-4 border-blue-200 p-4 mb-6 rounded-r-lg">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-info-circle text-blue-400 mt-1"></i>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-blue-800">
-                                        <span class="font-medium">Sources:</span> 
-                                        <a href="https://databox.com/email-marketing-statistics#42" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline font-medium transition-colors">Databox Email Marketing Statistics</a> and 
-                                        <a href="https://blog.hubspot.com/marketing/personalized-calls-to-action-convert-better-data" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline font-medium transition-colors">HubSpot's CTA Performance Research</a>
-                                    </p>
-                                </div>
-                            </div>
+
+                <!-- Article 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            <a href="llm-empowered-ab-testing/" class="hover:text-blue-600 transition-colors">
+                                LLM-Empowered A/B Testing: Avoid Pitfalls & Plan Smarter
+                            </a>
+                        </h3>
+                        <div class="mb-3 flex items-center text-sm text-gray-600">
+                            <span class="mr-2">
+                                <span class="font-medium text-gray-700">Carr Wang</span>, Product Engineer
+                            </span>
+                            <span class="px-2">•</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium">A/B Testing</span>
                         </div>
-                        
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-4">7-Day A/B Test Lift Estimator</h4>
-                            
-                            <div class="flex flex-wrap gap-3 mb-4">
-                                <span class="text-sm text-gray-600 self-center mr-2">Quick select:</span>
-                                <button onclick="setCTR(3)" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 hover:shadow-md active:bg-blue-800 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
-                                    3%
-                                </button>
-                                <button onclick="setCTR(4)" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 hover:shadow-md active:bg-blue-800 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
-                                    4%
-                                </button>
-                                <button onclick="setCTR(5)" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 hover:shadow-md active:bg-blue-800 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
-                                    5%
-                                </button>
-                                <button onclick="setCTR(10)" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 hover:shadow-md active:bg-blue-800 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer">
-                                    10%
-                                </button>
-                            </div>
-                            
-                            <p class="text-lg leading-relaxed mb-3">
-                                To confidently interpret your A/B test after 7 days—assuming 
-                                <input type="number" id="userCount" value="1000" min="1" max="100000" class="mx-3 px-3 py-2 border border-gray-300 rounded w-20 text-center bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"> 
-                                users/day <strong>(<span id="usersPerArm" class="text-gray-800">3,500</span> per arm)</strong> and a <strong>baseline conversion rate  
-                                </strong>of<input type="number" id="ctrRate" value="3" readonly class="mx-3 px-3 py-2 border border-gray-300 rounded w-16 text-center bg-gray-50 focus:outline-none cursor-default"><strong> % CTR</strong>—your experiment is sized to detect an absolute change of 
-                                <strong><span id="mdeResult" class="text-blue-600">0.0</span> %</strong> or more.
-                            </p>
-                            <p class="text-sm text-gray-600">
-                                (α = 0.05 ⇒ 5% false-positive risk; power = 80% ⇒ 20% false-negative risk for a true <span id="mdeResultFootnote" class="text-gray-800 font-medium">0.0</span>% lift.)
-                            </p>
-                        </div>
-                        
-                        <p class="text-lg leading-relaxed mb-6">
-                            That <span id="mdeResultText1" class="font-semibold text-blue-600">0.0</span>% is your Minimum Detectable Effect (MDE): the smallest lift you can reliably spot with 80% power (i.e. you'll detect a true effect of this size in roughly 4 out of 5 tests).
+                        <p class="text-lg leading-relaxed mb-4 text-gray-700">
+                            Now that chat-based LLMs sit only a browser tab away, many people paste their experiment data into ChatGPT and ask, "Is this statistically significant?" The workflow feels easier than fishing around for an online A/B‑testing calculator, and the AI's lengthy answer can sound authoritative. Convenience and extra text, however, do not guarantee statistical rigor — or a reliable conclusion.
                         </p>
-                        
-                        <p class="text-lg leading-relaxed mb-6">
-                            In practice, these numbers aren't just window dressing—they directly shape what your test can (and can't) detect:
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <p class="text-lg leading-relaxed mb-4"><strong>Without planning:</strong></p>
-                                <p class="text-lg leading-relaxed mb-4">
-                                    Imagine you see a <span id="mdeMinus3" class="font-semibold text-blue-600">0.0</span>% lift <span id="baselineCTR" class="font-semibold text-blue-600">3</span>% → <span id="baselinePlusLift" class="font-semibold text-blue-600">0.0</span>% after 7 days, but your p-value is 0.10 (>0.05, not statistically significant). Without having planned ahead, you might wrongly dismiss this promising lift as "no effect," unaware your test didn't have enough users to reliably detect lifts smaller than <span id="mdeResultText2" class="font-semibold text-blue-600">0.0</span>%.
-                                </p>
-                            </div>
-                            
-                            <div>
-                                <p class="text-lg leading-relaxed mb-4"><strong>With planning:</strong></p>
-                                <p class="text-lg leading-relaxed mb-4">
-                                    By sizing your test upfront for an MDE of <span id="mdeResultText3" class="font-semibold text-blue-600">0.0</span>% (80% power → you'd detect a true <span id="mdeResultText4" class="font-semibold text-blue-600">0.0</span>% lift in roughly 4 out of 5 tests), you immediately recognize the same <span id="mdeMinus3Text2" class="font-semibold text-blue-600">0.0</span>% lift as inconclusive rather than "no effect." To reliably detect smaller effects like this <span id="mdeMinus3Text3" class="font-semibold text-blue-600">0.0</span>% bump, you'd know ahead to increase your sample size.
-                                </p>
-                            </div>
-                                                        
-                            <p class="text-lg leading-relaxed mb-6">
-                                Plan your sample size and MDE ahead so you know clearly when a lift is real, inconclusive, or simply underpowered.
-                            </p>
-                        </div>
-                        
-                        <div class="mt-12 pt-8 border-t border-gray-200">
-                            <div class="space-y-6">
-                                <ul class="list-disc list-inside space-y-3 ml-6 text-lg leading-relaxed text-gray-800">
-                                    <li>Want to plug in your own historical conversion data for more precise experiment planning?</li>
-                                    <li>Curious how different timeframes reshape your test design?</li>
-                                    <li>Ready to start MDE-first and lock in your smallest meaningful lift?</li>
-                                </ul>
-                                
-                                <p class="text-lg leading-relaxed text-gray-800">
-                                    Join our early-access pilot: an LLM-powered guide to setting up practical, accurate A/B tests so you can interpret results—and act on them—with real confidence. Fill out the form below to get started!
-                                </p>
-                                
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <h3 id="llm-guidance" class="text-xl font-semibold text-gray-900 mb-6">Get LLM-Powered A/B Test Guidance</h3>
-                                    <div class="w-full overflow-hidden rounded-lg">
-                                        <iframe 
-                                            src="https://docs.google.com/forms/d/e/1FAIpQLSdHVhzlA6pyRtbpHdkD2rRivFXHiUGahBzJ1aaJCzqGiPsHRg/viewform?embedded=true" 
-                                            width="100%" 
-                                            height="800" 
-                                            frameborder="0" 
-                                            marginheight="0" 
-                                            marginwidth="0"
-                                            class="w-full rounded-lg shadow-sm">
-                                            Loading…
-                                        </iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="llm-empowered-ab-testing/" class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                            Read more
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-50 border-t border-gray-200 py-8 mt-12">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <div class="space-y-4">
-                <!-- <div class="text-gray-700 font-medium">
-                    Built by <span class="text-gray-900">Your Name</span>
-                </div> -->
                 <div class="text-gray-600 text-sm">
                     © 2025 AB+ Context. All rights reserved.
                 </div>
                 <div class="flex justify-center space-x-6 text-sm">
-                    <a href="/privacy" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
                         Privacy Policy
                     </a>
                     <a href="https://www.linkedin.com/in/carrzwang/" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
                         Contact
                     </a>
-                    <a href="/terms" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
                         Terms of Service
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Add some basic interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize MDE calculation
-            calculateMDE();
-            
-            // Add event listener to userCount input
-            document.getElementById('userCount').addEventListener('input', calculateMDE);
-            
-            // Handle upvote/downvote buttons
-            const voteButtons = document.querySelectorAll('.fa-arrow-up, .fa-arrow-down');
-            voteButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Toggle active state
-                    this.classList.toggle('text-orange-500');
-                    this.classList.toggle('text-gray-500');
-                });
-            });
-            
-            // Add smooth scrolling for better UX
-            document.documentElement.style.scrollBehavior = 'smooth';
-        });
-    </script>
 </body>
-</html> 
+</html>
